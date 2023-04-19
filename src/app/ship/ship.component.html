@@ -1,0 +1,19 @@
+
+<table>
+    <thead>
+        <th>Név</th>
+        <th>Hossz</th>
+        <th>Ár</th>
+        <th>Hány szemlyes</th>
+        <th>Szállító</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ship of ships">
+            <td>{{ship.name}}</td>
+            <td>{{ship.length}}</td>
+            <td>{{ship.price}}</td>
+            <td>{{ship.person}}</td>
+            <td>{{ship.trailer}}</td>
+        </tr>
+    </tbody>
+</table>
