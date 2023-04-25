@@ -1,4 +1,13 @@
 
+<!-- Button trigger modal -->
+<button type="button" 
+class="btn btn-primary" 
+data-bs-toggle="modal" 
+data-bs-target="#operatorModal">
+    Hozzáad
+</button>
+
+
 <table>
     <thead>
         <th>Név</th>
@@ -14,6 +23,83 @@
             <td>{{ship.price}}</td>
             <td>{{ship.person}}</td>
             <td>{{ship.trailer}}</td>
+            <td>
+                <button (click)="deleteShip(ship.id)"
+                class="btn btn-primary" 
+                >Törlés</button>
+            </td>
+            <td>
+                <button (click)="startEdit(ship)"
+                class="btn btn-primary" 
+                data-bs-toggle="modal" 
+                data-bs-target="#operatorModal"                
+                >Szerkesztés</button>
+            </td>
         </tr>
     </tbody>
 </table>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="operatorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <div class="mt-3">
+            <label for="id" class="label-control">Id</label>
+            <input type="text" class="form-control"
+            [formControl]="id"
+            >
+          </div>
+          <div class="mt-3">
+            <label for="name" class="label-control">Név</label>
+            <input type="text" class="form-control"
+            [formControl]="name"
+            >
+          </div>
+          <div class="mt-3">
+            <label for="length" class="label-control">Hossz</label>
+            <input type="text" class="form-control"
+            [formControl]="length"
+            >
+          </div>
+          <div class="mt-3">
+            <label for="price" class="label-control">Ár</label>
+            <input type="text" class="form-control"
+            [formControl]="price"
+            >
+          </div>
+          <div class="mt-3">
+            <label for="trailer" class="label-control">Szállító</label>
+            <input type="text" class="form-control"
+            [formControl]="trailer"
+            >
+          </div>
+          <div class="mt-3">
+            <label for="person" class="label-control">Személyek száma</label>
+            <input type="text" class="form-control"
+            [formControl]="person"
+            >
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" 
+          data-bs-dismiss="modal"
+          (click)="startClose()"
+          >Bezár</button>
+
+          <button type="button" class="btn btn-primary"
+          data-bs-dismiss="modal" 
+          (click)="startSave()"
+          >
+            Ment</button>
+        </div>
+      </div>
+    </div>
+  </div>
